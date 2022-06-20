@@ -21,6 +21,41 @@ Multiple questions with the same intent can cause seekers to spend more time fin
 ### Advanced Feature Engineering
 Used [FuzzyWuzzy](https://chairnerd.seatgeek.com/fuzzywuzzy-fuzzy-string-matching-in-python/) library to calculate different similarities between both the questions.
 
-### Word Embeddings
-Used [Sentence tranformer](https://huggingface.co/sentence-transformers/paraphrase-MiniLM-L3-v2) and Word2Vec technique to generated embeddingss out of the two questions.
+### Text Preprocessing
+Preprocessed the text in both the question column in the following ways:
+ - Converted the string to lower.
+ - Removed digits, special characters, unwanted spaces, stopwords.
+ - expanded the contracted words.
+ - Lemmatization. 
 
+### Word Embeddings
+Used [Sentence tranformer](https://huggingface.co/sentence-transformers/paraphrase-MiniLM-L3-v2) and Word2Vec technique to generated embeddings out of the two questions.
+<br><br>
+**There were two final datasets, one with base and derived features and Word2Vec embeddings having the final dimensionality of (404290, 618) and the other one was having the base and derived features and word embeddings generated from sentence transformer having the dimensionality of (404290, 786).**
+
+### Performance Metric Used
+**Log Loss**
+ - Ranges from 0-∞.
+ - **Lower** the score, better the model performance is.
+
+### Final Results
+Model | Embeddings | Score
+--- | --- | ---
+Logistic Regression | Word2Vec | **0.4785**
+Logistic Regression | Sent2Vec | **0.4727**
+SVM | Word2Vec | **0.4797**
+SVM | Sent2Vec | **0.4735**
+Xgboost | Word2Vec | **0.3686**
+Xgboost | Sent2Vec | **0.3861**
+<br><br>
+Here we can see that **Xgboost** is giving the best results on **Word2Vec** embeddings data.
+
+## Conclusions:-
+ - Logistics regression performance improves as the dimensionality of data increases as we can see the results above.
+ - As the dimesionality of data increases, the Xgboost slows down.
+<br>
+Both the above conclusions can be easily explained and understood by learning the intuition behind both the algorithms.
+
+## Future Work:-
+ - Use of better sentence transformer to generate the embeddings can definitely imporve the results(But we require better computational power for that).
+ - Other Boosting algorithms like Catboost and LightGBM can also be used in this case.
