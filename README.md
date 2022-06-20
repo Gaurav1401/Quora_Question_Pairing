@@ -47,7 +47,8 @@ SVM | Word2Vec | **0.4797**
 SVM | Sent2Vec | **0.4735**
 Xgboost | Word2Vec | **0.3686**
 Xgboost | Sent2Vec | **0.3861**
-<br><br>
+
+
 Here we can see that **Xgboost** is giving the best results on **Word2Vec** embeddings data.
 
 ## Conclusions:-
