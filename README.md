@@ -51,9 +51,9 @@ Xgboost | Sent2Vec | **0.3861**
 
 Here we can see that **Xgboost** is giving the best results on **Word2Vec** embeddings data.
 
-## Conclusions:-
+## Key Observations:-
  - Logistics regression performance improves as the dimensionality of data increases as we can see the results above.
- - As the dimesionality of data increases, the Xgboost slows down.
+ - As the dimesionality of data increases, the tree algorithms like Xgboost takes even more time to train.
 <br>
 Both the above conclusions can be easily explained and understood by learning the intuition behind both the algorithms.
 
